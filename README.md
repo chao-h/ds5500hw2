@@ -7,7 +7,9 @@ The visualization uses filled area plots. Viewer can easily see how GDP for each
 
 # Problem 3
 ## Choose and critique one of the visualization by one of your fellow classmates for HW 1 Problem 3 (relationship between income, life expectancy, and child mortality over time). Include a link to the original.
+<https://nbviewer.jupyter.org/github/fhooton/DS5500_HW1/blob/master/solutions.ipynb>
 ## Describe the visualization and how it is similar and/or different from yours. Is it easy to interpret? Does it effectively visualize what is being asked? Why or why not?
+This visualization uses an interactive scatter plot with animation over time while using different colors for each continent. Mine uses static line plots. While mine is easy to visualize the trend of each continent over time, this visualization is much more effective for comparing data point for each country. Although the comparison between continent is slightly more difficult to interpret, due to each continent uses different color for each data points, it also enables viewers to further look into the actual distribution. The use of interactive plot makes detailed information for each data point(country) able to be further investigated based on researchers' interest. Overall I think this is a very effective visualization.
 
 # Problem 4
 ## Choose and fit one or more models to quantify the relationship betweem income (GDP per capita) and life expectancy over time. Justify your choice of model and comment on its appropriateness. (You are not required to handle the autocorrelation of time series, but should comment on how this impacts your analysis.)

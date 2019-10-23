@@ -1,0 +1,45 @@
+---
+title: "Q3"
+author: "CHAO Hsiangwei"
+date: "October 23, 2019"
+output: pdf_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+df_pop = read.csv('dataset/ddf--gapminder--systema_globalis-master/ddf--datapoints--population_total--by--geo--time.csv')
+df_gdp = read.csv('dataset/ddf--gapminder--systema_globalis-master/ddf--datapoints--gdppercapita_us_inflation_adjusted--by--geo--time.csv')
+df_life = read.csv('dataset/ddf--gapminder--systema_globalis-master/ddf--datapoints--life_expectancy_years--by--geo--time.csv')
+df_geo = read.csv('dataset/ddf--gapminder--systema_globalis-master/ddf--entities--geo--country.csv') %>%
+  select(country, world_6region) %>%
+  rename(geo=country)
+```
+
+```{r}
+df = df_pop %>%
+  merge(df_gdp) %>%
+  merge(df_life) %>%
+  merge(df_geo)
+colnames(df)
+```
+```{r}
+summary(df)
+```
+
+
+```{r}
+model = lm("life_expectancy_years ~ gdppercapita_us_inflation_adjusted + time + world_6region",
+   data=df,
+   weights=population_total)
+summary(model)
+```
+
+```{r}
+ggplot(df, aes(gdppercapita_us_inflation_adjusted, life_expectancy_years, fill=world_6region)) +
+  geom_point()
+```
+
